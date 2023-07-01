@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Buraco Negro</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <meta property="og:url"                content="https://oseiskar.github.io/black-hole" />
+        <meta property="og:title"              content="THREE.js Black Hole" />
+        <meta property="og:description"        content="A real time ray-traced simulation of a Schwarzschild black hole. Needs a decent GPU and a recent variant of Chrome or Firefox to run smoothly." />
+        <meta property="og:image"              content="http://oseiskar.github.io/img/black-hole.jpg" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div id="hint-text" class="hidden-phone initially-hidden">
+            Arraste para girar ou alternar variáveis ​​à direita ⟶
+        </div>
+        <div class="info ">
+            <div id="loader">
+                Carregando...
+                <div class="disclaimer">
+                    Esta é uma demonstração WebGL e é muito improvável que funcione, a menos que você execute
+                    no Chrome ou Firefox
+                </div>
+            </div>
+
+        </div>
+
+        <div class="link-bar">
+        
+            |
+            <a href="https://github.com/BrunoCosta19" target="_blank"><i class="fa fa-github fa-lg"></i> Fonte</a>
+            |
+            
+
+           
+
+        <script src="js-libs/jquery-2.1.4.min.js"></script>
+        <script src="js-libs/three.min.js"></script>
+        <script src="js-libs/OrbitControls.js"></script>
+        <script src="js-libs/Detector.js"></script>
+        <script src="js-libs/stats.min.js"></script>
+        <script src="js-libs/ShaderLoader.min.js"></script>
+        <script src="js-libs/mustache.min.js"></script>
+        <script src="js-libs/dat.gui.min.js"></script>
+        <script src="three-js-monkey-patch.js"></script>
+
+        <script id="vertex-shader" type="x-shader/x-vertex">
+
+            void main()    {
+
+                gl_Position = vec4( position, 1.0 );
+
+            }
+
+        </script>
+        <script data-src="raytracer.glsl" data-name="raytracer" type="x-shader/x-fragment"></script>
+        <script src="main.js"></script>
+
+    </body>
+</html>
